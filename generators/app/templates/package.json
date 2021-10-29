@@ -1,0 +1,15 @@
+{
+  "name": "<%= projectId %>",
+  "version": "1.0.0",
+  "description": "BackstopJS tests",
+  "main": "index.js",
+  "scripts": {
+    "approve": "backstop approve --config='backstop.config.js'",
+    "init": "backstop init",
+    "reference": "backstop reference --config='backstop.config.js'",
+    "test": "backstop test --config='backstop.config.js'"
+  },
+  "dependencies": {
+    "backstopjs": "^5.4.4"
+  }
+}

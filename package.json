@@ -1,6 +1,6 @@
 {
   "name": "generator-aten-backstop",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Initializes baseline visual regression testing on a project.",
   "homepage": "aten.io",
   "author": {

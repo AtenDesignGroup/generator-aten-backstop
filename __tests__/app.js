@@ -3,11 +3,11 @@ const path = require("path");
 const assert = require("yeoman-assert");
 const helpers = require("yeoman-test");
 
-describe("generator-aten-backstop:app", () => {
-  const PROJECT_ID = "test_project";
-  const REFERENCE_DOMAIN = "https://prod-site.com";
-  const TEST_DOMAIN = "https://local-site.test";
+const PROJECT_ID = "test_project";
+const REFERENCE_DOMAIN = "https://prod-site.com";
+const TEST_DOMAIN = "https://local-site.test";
 
+describe("generator-aten-backstop:app", () => {
   beforeAll(() => {
     return helpers.run(path.join(__dirname, "../generators/app")).withPrompts({
       projectId: PROJECT_ID,

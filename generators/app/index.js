@@ -30,11 +30,13 @@ module.exports = class extends Generator {
       },
       {
         name: "referenceDomain",
-        message: "What is the url for your reference site? Ex. https://aten.io"
+        message: "What is the url for your reference site?",
+        default: "https://my_site.com"
       },
       {
         name: "testDomain",
-        message: "What is the url for your test site? Ex. https://dev.aten.io"
+        message: "What is the url for your test site? Ex. https://dev.aten.io",
+        default: "https://my_site.test"
       }
     ]);
   }
@@ -55,11 +57,16 @@ module.exports = class extends Generator {
       { ...this.answers }
     );
 
-    const filesToCopy = [".nvmrc", ".gitignore", "README.md"];
+    const filesToCopy = [".nvmrc", "README.md"];
 
     filesToCopy.forEach(filename => {
       this.fs.copy(this.templatePath(filename), this.destinationPath(filename));
     });
+
+    this.fs.copy(
+      this.templatePath("gitignore"),
+      this.destinationPath(".gitignore")
+    );
   }
 
   install() {
@@ -70,6 +77,14 @@ module.exports = class extends Generator {
   }
 
   end() {
+    this.log(
+      yosay(
+        `Deleting the default ${chalk.red("backstop.json")} file.
+
+        Enter ${chalk.green("y")} to accept.
+        #trust`
+      )
+    );
     this.fs.delete("backstop.json");
   }
 };
